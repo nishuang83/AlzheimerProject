@@ -1,9 +1,9 @@
 numpy==1.21.2+computecanada
 scikit-learn==1.0.1+computecanada
-scanpy
+scanpy==1.8.2+computecanada
 phate
 pandas==1.3.5
-anndata
+anndata== 0.8.0
 
 
 

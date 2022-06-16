@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # Others
-Alz_env
+alz_env
 
 # data
 data
