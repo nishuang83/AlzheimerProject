@@ -25,8 +25,10 @@ data_pp = sc.read(DATA_DIR_pp)
 ######
 MSphate_operator = MSphate.Multiscale_PHATE(n_pca=None)
 Y_MSphate_pp = MSphate_operator.fit(data_pp)
-Y_MSphate_pp = Y_MSphate_pp.transform(visualization_level=self.algo_obj.levels[0], **opt_kwargs)
+# Y_MSphate_pp = Y_MSphate_pp.transform(visualization_level=self.algo_obj.levels[0], **opt_kwargs)
 
+ax = plt.plot(mp_op.gradient)
+ax = plt.scatter(levels, mp_op.gradient[levels], c = 'r', s=100)
 ######
 # plot
 ######
