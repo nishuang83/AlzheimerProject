@@ -15,5 +15,5 @@ export PYTHONPATH="$PROJECT_DIR:$PYTHONPATH"
 
 
 
-#salloc --time=2:0:0 --account=rrg-bengioy-ad --mem=5Gb
+#salloc --time=2:0:0 --account=rrg-bengioy-ad --mem=10Gb
 # rm -rf $ENVDIR
