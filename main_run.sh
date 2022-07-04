@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #SBATCH --account=rrg-bengioy-ad
-#SBATCH --time=7:00:00
+#SBATCH --time=4:00:00
 #SBATCH --mem=50G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=8
 #SBATCH --job-name=msphate
 #SBATCH --output=experiment/slurm_output/R-%x.%j.out
 #SBATCH --error=experiment/slurm_output/R-%x.%j.err

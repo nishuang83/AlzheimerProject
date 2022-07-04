@@ -131,6 +131,7 @@ dmypy.json
 # Others
 alz_env
 alz_env3.8
+alz_jupyter
 
 # data
 data

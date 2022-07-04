@@ -6,6 +6,7 @@ import matplotlib
 import seaborn as sns
 import phate
 import multiscale_phate as MSphate
+import pickle 
 
 PROJECT_DIR="/home/shuangni/AlzheimerProject"
 # DATA_DIR_raw = PROJECT_DIR + '/data/msPHATE_data_raw.h5ad'
@@ -13,40 +14,38 @@ PROJECT_DIR="/home/shuangni/AlzheimerProject"
 
 DATA_DIR_pp = PROJECT_DIR + '/data/msPHATE_data_pp.h5ad'
 data_pp = sc.read(DATA_DIR_pp)
-
-######
-# PHATE
-######
-# phate_operator = phate.PHATE(n_jobs=-2)
-# Y_MSphate_pp = phate_operator.fit_transform(data_pp)
+data_input = data_pp.to_df() #convert to pandas dataframe
 
 ######
 # MSphate
 ######
-# MSphate_operator = MSphate.Multiscale_PHATE(n_pca=None)
-# Y_MSphate_pp = MSphate_operator.fit(data_pp)
-# Y_MSphate_pp = Y_MSphate_pp.transform(visualization_level=self.algo_obj.levels[0], **opt_kwargs)
-
-# MSphate_operator =  MSphate.Multiscale_PHATE(random_state=1)
-# levels = MSphate_operator.fit(data_raw)
-
-######
-# MSphate for data_pp
-######
+# pick a specific level
 mp_op =  MSphate.Multiscale_PHATE(random_state=1)
-levels = mp_op.fit(data_pp)
-
+levels = mp_op.fit(data_input)
 plt.figure()
-plt.plot(mp_op.gradient)
-plt.scatter(levels, mp_op.gradient[levels], c = 'r', s=100)
+ax = plt.plot(mp_op.gradient)
+ax = plt.scatter(levels, mp_op.gradient[levels], c = 'r', s=100)
 plt.savefig(PROJECT_DIR + '/results/'+'levels.jpg')
-print(levels)
+print('levels = ',levels)
+
+# do the MSphate transform
 embedding, clusters, sizes = mp_op.transform(visualization_level = levels[2],cluster_level = levels[1])
 
-with open(PROJECT_DIR + '/results/'+'embedding.txt','w') as f:
-    f.writelines(embedding)
+# with open(PROJECT_DIR + '/results/'+'embedding.txt','w') as f:
+#     f.writelines(embedding)
+######
+# pickle teh operator
+######
+pickle_output = open(PROJECT_DIR + '/results/'+'msphate_operator.pkl', 'wb')
 
+# Pickle dictionary using protocol 0.
+pickle.dump(mp_op, pickle_output)
+
+pickle_output.close()
+
+######
 # plot
+######
 celltypes = data_pp.obs.celltype
 Subclusters = data_pp.obs.Subcluster
 cerad_scores = data_pp.obs.cerad_score
@@ -58,7 +57,7 @@ hue_list = [celltypes, Subclusters, diagnosises, cerad_scores, braak_stages, apo
 x_axis=embedding[:, 0]
 y_axis=embedding[:, 1]
 titles = 'Multiscale PHATE (preprocessed)'
-
+plt.figure()
 fig, axes = plt.subplots(2, 3, figsize=(20, 10))
 
 sns.scatterplot(ax=axes[0,0], x = x_axis, y = y_axis, hue=hue_list[0], s = 5).set(title='Celltypes for '+ titles)
