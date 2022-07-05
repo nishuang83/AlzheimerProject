@@ -1,0 +1,2 @@
+/var/spool/slurmd/job7466104/slurm_script: line 25: 3646653 Killed                  python /home/shuangni/AlzheimerProject/MSphate_run.py
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=7466104.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
