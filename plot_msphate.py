@@ -9,41 +9,13 @@ import multiscale_phate as MSphate
 import pickle 
 
 PROJECT_DIR="/home/shuangni/AlzheimerProject"
-# DATA_DIR_raw = PROJECT_DIR + '/data/msPHATE_data_raw.h5ad'
-# data_raw = sc.read_h5ad(DATA_DIR_raw)
 
 DATA_DIR_pp = PROJECT_DIR + '/data/msPHATE_data_pp.h5ad'
 data_pp = sc.read(DATA_DIR_pp)
-data_input = data_pp.to_df() #convert to pandas dataframe
 
-######
-# MSphate
-######
-# pick a specific level
-mp_op =  MSphate.Multiscale_PHATE(random_state=1)
-levels = mp_op.fit(data_input)
-plt.figure()
-ax = plt.plot(mp_op.gradient)
-ax = plt.scatter(levels, mp_op.gradient[levels], c = 'r', s=100)
-plt.savefig(PROJECT_DIR + '/results/'+'levels.jpg')
-# print('levels = ',levels)
-
-# save levels
-# with open(PROJECT_DIR + '/results/'+'level.txt','w') as f:
-#     f.writelines(levels)
-
-######
-# pickle the levels
-######
-pickle_levels = open(PROJECT_DIR + '/results/'+'levels.pkl', 'wb')
-
-# Pickle dictionary using protocol 0.
-pickle.dump(levels, pickle_levels)
-
-pickle_levels.close()
-
-# do the MSphate transform
-embedding, clusters, sizes = mp_op.transform(visualization_level = levels[2],cluster_level = levels[1])
+file = open(PROJECT_DIR + '/results/'+'msphate_operator.pkl','rb')
+mp_op = pickle.load(file)  
+embedding, clusters, sizes = mp_op.transform(visualization_level = 14)
 
 ######
 # pickle the embedding
@@ -54,16 +26,6 @@ pickle_embedding = open(PROJECT_DIR + '/results/'+'embedding.pkl', 'wb')
 pickle.dump(embedding, pickle_embedding)
 
 pickle_embedding.close()
-
-######
-# pickle the operator
-######
-pickle_operator = open(PROJECT_DIR + '/results/'+'msphate_operator.pkl', 'wb')
-
-# Pickle dictionary using protocol 0.
-pickle.dump(mp_op, pickle_operator)
-
-pickle_operator.close()
 
 ######
 # plot
@@ -96,9 +58,3 @@ sns.scatterplot(ax=axes[1,2], x = x_axis, y = y_axis, hue=hue_list[5], s = 5).se
 
 plt.savefig(PROJECT_DIR + '/figures/'+ titles +'_all_fig.pdf')
 plt.savefig(PROJECT_DIR + '/figures/'+ titles +'_all_fig.jpg')
-
-
-
-
-
-
