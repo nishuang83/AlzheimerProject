@@ -2,7 +2,7 @@
 
 #SBATCH --account=rrg-bengioy-ad
 #SBATCH --time=4:00:00
-#SBATCH --mem=150G
+#SBATCH --mem=100G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
@@ -22,4 +22,5 @@ module load python/3.8
 source $ENV_LOC/bin/activate
 export PYTHONPATH="$PROJECT_DIR:$PYTHONPATH"
 
-python /home/shuangni/AlzheimerProject/MSphate_run.py
+# python /home/shuangni/AlzheimerProject/MSphate_run.py
+python /home/shuangni/AlzheimerProject/plot_msphate.py

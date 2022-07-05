@@ -5,7 +5,7 @@ phate
 pandas
 anndata
 seaborn
-
+scprep
 
 
 # biopython==1.79
