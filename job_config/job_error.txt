@@ -1,0 +1,2 @@
+/home/shuangni/AlzheimerProject/MSPhate_buildtree.py:48: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  pickle.dump(np.array(Xs), open(PROJECT_DIR + '/results/'+'Xs.pickle', 'wb'))

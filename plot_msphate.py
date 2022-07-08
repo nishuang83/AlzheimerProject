@@ -23,6 +23,9 @@ read_operator = open(PROJECT_DIR + '/results/'+'msphate_operator.pkl','rb')
 mp_op = pickle.load(read_operator)  
 embedding, clusters, sizes = mp_op.transform(visualization_level = levels[2], cluster_level = levels[9])
 
+
+
+                                                            
 ######
 # pickle the embedding
 ######
