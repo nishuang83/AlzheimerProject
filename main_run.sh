@@ -23,5 +23,5 @@ source $ENV_LOC/bin/activate
 export PYTHONPATH="$PROJECT_DIR:$PYTHONPATH"
 
 # python /home/shuangni/AlzheimerProject/MSphate_run.py
-# python /home/shuangni/AlzheimerProject/plot_msphate.py
-python /home/shuangni/AlzheimerProject/MSPhate_buildtree.py
+python /home/shuangni/AlzheimerProject/plot_msphate.py
+# python /home/shuangni/AlzheimerProject/MSPhate_buildtree.py
