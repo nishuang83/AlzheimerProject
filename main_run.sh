@@ -2,7 +2,7 @@
 
 #SBATCH --account=rrg-bengioy-ad
 #SBATCH --time=4:00:00
-#SBATCH --mem=100G
+#SBATCH --mem=200G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
