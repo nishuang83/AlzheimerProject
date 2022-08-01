@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # Others
-alz_env
+alz_env/
 alz_env3.8
 alz_jupyter
 
@@ -139,5 +139,6 @@ results
 
 #code
 plot_msphate.ipynb
-plot_msphate2.py
+plot_msphate.py
+plot_msphate2.ipynb
 MSphate_buildtree.py

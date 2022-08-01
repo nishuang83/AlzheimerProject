@@ -7,7 +7,9 @@ import seaborn as sns
 import phate
 import multiscale_phate as MSphate
 import pickle 
+import numpy as np
 from utils import plot_all_levels
+
 
 PROJECT_DIR="/home/shuangni/AlzheimerProject"
 # DATA_DIR_raw = PROJECT_DIR + '/data/msPHATE_data_raw.h5ad'
