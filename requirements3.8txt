@@ -6,6 +6,7 @@ pandas
 anndata
 seaborn
 scprep
+meld
 
 
 # biopython==1.79

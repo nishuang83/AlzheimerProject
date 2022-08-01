@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #SBATCH --account=rrg-bengioy-ad
-#SBATCH --time=4:00:00
-#SBATCH --mem=200G
+#SBATCH --time=1:00:00
+#SBATCH --mem=500G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --job-name=msphate
+#SBATCH --cpus-per-task=16
+#SBATCH --job-name=msphate2
 #SBATCH --output=/home/shuangni/AlzheimerProject/job_config/job_output.txt
 #SBATCH --error=/home/shuangni/AlzheimerProject/job_config/job_error.txt
 #SBATCH --mail-user=shuang.ni@mila.quebec

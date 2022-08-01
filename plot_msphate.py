@@ -21,35 +21,44 @@ print(levels)
 read_operator = open(PROJECT_DIR + '/results/'+'msphate_operator.pkl','rb')
 mp_op = pickle.load(read_operator)  
 # embedding, clusters, sizes = mp_op.transform(visualization_level = levels[0], cluster_level = levels[0])
-
-
-
-                                                            
+# print('finish embedding')
+# print(embedding.shape)
+# print(clusters.shape)
+# print(sizes.shape)
 ######
 # pickle the embedding
 ######
-# pickle_embedding = open(PROJECT_DIR + '/results/'+'embedding.pkl', 'wb')
-
+# pickle_embedding = open(PROJECT_DIR + '/results/'+'embedding_0.pkl', 'wb')
 # # Pickle dictionary using protocol 0.
 # pickle.dump(embedding, pickle_embedding)
-
 # pickle_embedding.close()
+# print('embedding saved')
+
+# pickle_clusters = open(PROJECT_DIR + '/results/'+'clusters_0.pkl', 'wb')
+# # Pickle dictionary using protocol 0.
+# pickle.dump(clusters, pickle_clusters)
+# pickle_clusters.close()
+# print('clusters saved')
+
+# pickle_sizes = open(PROJECT_DIR + '/results/'+'sizes_0.pkl', 'wb')
+# # Pickle dictionary using protocol 0.
+# pickle.dump(sizes, pickle_sizes)
+# pickle_sizes.close()
+# print('sizes saved')
 ######
-# plot3
+# plot all
 ######
 plot_all_levels(levels = levels, mp_op = mp_op)
 
 ######
 # plot2
 ######
-# titles = 'Multiscale PHATE (preprocessed)'
-# sns.scatterplot(x = embedding[:, 0], y = embedding[:, 1]).set(title='Celltypes for '+ titles)
-# plt.savefig(PROJECT_DIR + '/figures/'+ titles +'_all_fig_0.jpg')
+# titles = 'Multiscale PHATE'
 # plt.figure()
 # scprep.plot.scatter2d(embedding, s = 100*np.sqrt(sizes), c = clusters,
 #                       fontsize=16, ticks=False,label_prefix="Multiscale PHATE", figsize=(10,8))
-# plt.savefig(PROJECT_DIR + '/figures/'+ titles +'_all_fig_scprep_0.jpg')
-######
+# plt.savefig(PROJECT_DIR + '/figures/'+ titles +'_all_fig_level_0.jpg')
+# ######
 # plot
 ######
 # celltypes = data_pp.obs.celltype

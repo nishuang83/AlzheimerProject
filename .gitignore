@@ -136,8 +136,8 @@ alz_jupyter
 # data
 data
 results
-job_config
 
 #code
-testotherdata.ipynb
-job_config/job_output.txt
+plot_msphate.ipynb
+plot_msphate2.py
+MSphate_buildtree.py
