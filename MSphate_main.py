@@ -8,6 +8,7 @@ import phate
 import multiscale_phate as MSphate
 import pickle 
 import numpy as np
+import scprep
 from utils import plot_all_levels
 
 
@@ -18,33 +19,42 @@ PROJECT_DIR="/home/shuangni/AlzheimerProject"
 DATA_DIR_pp = PROJECT_DIR + '/data/msPHATE_data_pp.h5ad'
 data_pp = sc.read(DATA_DIR_pp)
 data_input = data_pp.to_df() #convert to pandas dataframe
+data_norm, libsize = scprep.normalize.library_size_normalize(data_input, return_library_size=True)
+data_sqrt = np.sqrt(data_norm)
+
+######
+# pickle the data_sqrt
+######
+pickle_data_sqrt = open(PROJECT_DIR + '/results/squareroot/'+'data_sqrt.pkl', 'wb')
+pickle.dump(data_sqrt, pickle_data_sqrt)
+pickle_data_sqrt.close()
 
 ######
 # MSphate
 ######
 # pick a specific level
-mp_op =  MSphate.Multiscale_PHATE(random_state=1)
-levels = mp_op.fit(data_input)
+mp_op =  MSphate.Multiscale_PHATE(random_state=1, n_jobs=-1)
+levels = mp_op.fit(data_sqrt)
 plt.figure()
 ax = plt.plot(mp_op.gradient)
 ax = plt.scatter(levels, mp_op.gradient[levels], c = 'r', s=100)
-plt.savefig(PROJECT_DIR + '/results/'+'levels.jpg')
+plt.savefig(PROJECT_DIR + '/results/squareroot/'+'levels.jpg')
 # print('levels = ',levels)
 
 ######
 # pickle the levels
 ######
-pickle_levels = open(PROJECT_DIR + '/results/'+'levels.pkl', 'wb')
+pickle_levels = open(PROJECT_DIR + '/results/squareroot/'+'levels.pkl', 'wb')
 pickle.dump(levels, pickle_levels)
 pickle_levels.close()
 
 ######
 # pickle the operator
 ######
-pickle_operator = open(PROJECT_DIR + '/results/'+'msphate_operator.pkl', 'wb')
+pickle_operator = open(PROJECT_DIR + '/results/squareroot/'+'msphate_operator.pkl', 'wb')
 pickle.dump(mp_op, pickle_operator)
 pickle_operator.close()
-
+print('operator saved')
 ######
 # plot results of all levels and save
 ######
@@ -56,17 +66,17 @@ embedding, clusters, sizes = mp_op.transform(visualization_level = levels[2],clu
 ######
 # pickle the embedding, clusters, sizes 
 ######
-pickle_embedding = open(PROJECT_DIR + '/results/'+'embedding.pkl', 'wb')
+pickle_embedding = open(PROJECT_DIR + '/results/squareroot/'+'embedding.pkl', 'wb')
 pickle.dump(embedding, pickle_embedding)
 pickle_embedding.close()
 print('embedding saved')
 
-pickle_clusters = open(PROJECT_DIR + '/results/'+'clusters_0.pkl', 'wb')
+pickle_clusters = open(PROJECT_DIR + '/results/squareroot/'+'clusters.pkl', 'wb')
 pickle.dump(clusters, pickle_clusters)
 pickle_clusters.close()
 print('clusters saved')
 
-pickle_sizes = open(PROJECT_DIR + '/results/'+'sizes_0.pkl', 'wb')
+pickle_sizes = open(PROJECT_DIR + '/results/squareroot/'+'sizes.pkl', 'wb')
 pickle.dump(sizes, pickle_sizes)
 pickle_sizes.close()
 print('sizes saved')
@@ -77,9 +87,9 @@ print('sizes saved')
 ######
 NxTs = mp_op.NxTs
 Xs = mp_op.Xs
-np.savetxt(PROJECT_DIR + '/results/'+'NxTs.txt', NxTs)        
+np.savetxt(PROJECT_DIR + '/results/squareroot/'+'NxTs.txt', NxTs)        
 print('NxTs saved')
-pickle.dump(np.array(Xs), open(PROJECT_DIR + '/results/'+'Xs.pickle', 'wb'))
+pickle.dump(np.array(Xs), open(PROJECT_DIR + '/results/squareroot/'+'Xs.pkl', 'wb'))
 print('Xs saved')
 
 

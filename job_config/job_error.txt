@@ -1,28 +1,4 @@
-ValueError: d or w not right length for condensed distance matrix
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/shuangni/AlzheimerProject/plot_msphate.py", line 51, in <module>
-    plot_all_levels(levels = levels, mp_op = mp_op)
-  File "/home/shuangni/AlzheimerProject/utils.py", line 25, in plot_all_levels
-    embedding, clusters, sizes = mp_op.transform(visualization_level = levels[0], cluster_level = levels[-2])
-  File "/home/shuangni/COVIDproject/Multiscale_PHATE/multiscale_phate/multiscale_phate.py", line 233, in transform
-    return visualize.get_visualization(
-  File "/home/shuangni/COVIDproject/Multiscale_PHATE/multiscale_phate/visualize.py", line 32, in get_visualization
-    (hp_embedding, cluster_viz, sizes_viz,) = embed.get_clusters_sizes_2(
-  File "/home/shuangni/COVIDproject/Multiscale_PHATE/multiscale_phate/embed.py", line 222, in get_clusters_sizes_2
-    embedding = phate.mds.embed_MDS(subset_X, n_jobs=n_jobs, seed=random_state)
-  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/phate/mds.py", line 230, in embed_MDS
-    Y = sgd(X_dist, n_components=ndim, random_state=seed, init=Y_classic)
-  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/decorator.py", line 232, in fun
-    return caller(func, *(extras + args), **kw)
-  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/scprep/utils.py", line 80, in _with_pkg
-    return fun(*args, **kwargs)
-  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/phate/mds.py", line 84, in sgd
-    Y = s_gd2.mds_direct(N, D, init=init, random_seed=random_state)
-  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/s_gd2/s_gd2.py", line 84, in mds_direct
-    cpp.mds_direct(X, d, w, etas, random_seed)
-SystemError: <built-in function mds_direct> returned a result with an error set
-/var/spool/slurmd/job8098377/slurm_script: line 26: 1952511 Killed                  python /home/shuangni/AlzheimerProject/plot_msphate.py
-slurmstepd: error: Detected 1 oom-kill event(s) in StepId=8098377.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
+/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/scprep/plot/utils.py:33: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, ax = plt.subplots(figsize=figsize, subplot_kw=subplot_kw)
+/home/shuangni/AlzheimerProject/MSphate_main.py:92: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  pickle.dump(np.array(Xs), open(PROJECT_DIR + '/results/squareroot/'+'Xs.pkl', 'wb'))
