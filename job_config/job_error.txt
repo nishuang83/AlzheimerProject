@@ -1,4 +1,11 @@
-/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/scprep/plot/utils.py:33: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
-  fig, ax = plt.subplots(figsize=figsize, subplot_kw=subplot_kw)
-/home/shuangni/AlzheimerProject/MSphate_main.py:92: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
-  pickle.dump(np.array(Xs), open(PROJECT_DIR + '/results/squareroot/'+'Xs.pkl', 'wb'))
+Traceback (most recent call last):
+  File "/home/shuangni/AlzheimerProject/plot_msphate.py", line 46, in <module>
+    expression['celltype'] = mp_op.get_expression(data_pp.obs["celltype"].values,visualization_level =  levels[2])
+  File "/home/shuangni/COVIDproject/Multiscale_PHATE/multiscale_phate/multiscale_phate.py", line 329, in get_expression
+    exp.append(np.mean(expression[l]))
+  File "<__array_function__ internals>", line 180, in mean
+  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/numpy/core/fromnumeric.py", line 3474, in mean
+    return _methods._mean(a, axis=axis, dtype=dtype,
+  File "/home/shuangni/AlzheimerProject/alz_env3.8/lib/python3.8/site-packages/numpy/core/_methods.py", line 191, in _mean
+    ret = ret / rcount
+TypeError: ufunc 'true_divide' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
