@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --account=rrg-bengioy-ad
-#SBATCH --time=2:00:00
-#SBATCH --mem=200G
+#SBATCH --time=4:00:00
+#SBATCH --mem=400G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
