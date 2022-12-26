@@ -1,0 +1,1 @@
+/var/spool/slurmd/job12252932/slurm_script: line 19: DATA_DIR: command not found

@@ -136,6 +136,7 @@ alz_jupyter
 # data
 data
 results
+figures
 job_config
 
 #code
