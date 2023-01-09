@@ -10,17 +10,17 @@ import numpy as np
 from utils import plot_all_levels, plot_all_cluster_level
 
 PROJECT_DIR="/home/shuangni/AlzheimerProject"
-DATA_DIR = '/home/shuangni/scratch/Alzheimer_data/data/'
+DATA_DIR = '/home/shuangni/scratch/Alzheimer_data'
 
-DATA_DIR_preprocessed = DATA_DIR + 'msPHATE_data_pp.h5ad'
+DATA_DIR_preprocessed = DATA_DIR + '/data/msPHATE_data_pp.h5ad'
 data_pp = sc.read(DATA_DIR_preprocessed)
 data_pp.obs.diagnosis.replace({1: 1, -1:0}, inplace=True)
 
-read_levels = open(PROJECT_DIR + '/results/1st/'+'levels.pkl','rb')
+read_levels = open(DATA_DIR + '/results/1st/'+'levels.pkl','rb')
 levels = pickle.load(read_levels)  
 print(levels)
 
-read_operator = open(PROJECT_DIR + '/results/1st/'+'msphate_operator.pkl','rb')
+read_operator = open(DATA_DIR + '/results/1st/'+'msphate_operator.pkl','rb')
 mp_op = pickle.load(read_operator)  
 print("operator loaded")
 
@@ -38,12 +38,14 @@ print('levels = ',levels)
 ######
 # plot all with catagory
 ######
-# plot_all_levels(data = data_pp, levels = levels, mp_op = mp_op)
+SAVE_DIR = '/home/shuangni/AlzheimerProject/figures/original2/'
+plot_all_levels(data = data_pp, levels = levels, mp_op = mp_op, PROJECT_DIR = SAVE_DIR)
 
 ######
 # plot all with different cluster level , vl: visulization level
 ######
-plot_all_cluster_level(levels = levels, mp_op = mp_op, vl = 3)
+
+#plot_all_cluster_level(levels = levels, mp_op = mp_op, vl = 3)
 
 ######
 # plot one

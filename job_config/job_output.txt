@@ -1,12 +1,136 @@
 Calculating Multiscale PHATE tree...
+-----------------------Start diagnosis: no
   Calculating PCA...
-  Calculated PCA in 129.48 seconds.
+  Calculated PCA in 42.12 seconds.
   Calculating diffusion potential...
-  Calculated diffusion potential in 59.81 seconds.
-  Setting epsilon to 1.9983
-  Setting merge threshold to 0.001
+  Calculated diffusion potential in 56.67 seconds.
+  Setting epsilon to 5.0431
+  Setting merge threshold to 0.0356
   Calculating condensation...
-  Calculated condensation in 275.76 seconds.
-Calculated Multiscale PHATE tree in 510.42 seconds.
+  Calculated condensation in 99.71 seconds.
+Calculated Multiscale PHATE tree in 206.30 seconds.
 Computing gradient...
 Identifying salient levels of resolution...
+Calculating Multiscale PHATE tree...
+Saving figures for level0 with catergory sex
+Saving figures for level0 with catergory cerad_score
+Saving figures for level0 with catergory braak_stage
+Saving figures for level0 with catergory apoe_genotype
+Saving figures for level0 with catergory celltype
+Saving figures for level1 with catergory sex
+Saving figures for level1 with catergory cerad_score
+Saving figures for level1 with catergory braak_stage
+Saving figures for level1 with catergory apoe_genotype
+Saving figures for level1 with catergory celltype
+Saving figures for level2 with catergory sex
+Saving figures for level2 with catergory cerad_score
+Saving figures for level2 with catergory braak_stage
+Saving figures for level2 with catergory apoe_genotype
+Saving figures for level2 with catergory celltype
+Saving figures for level3 with catergory sex
+Saving figures for level3 with catergory cerad_score
+Saving figures for level3 with catergory braak_stage
+Saving figures for level3 with catergory apoe_genotype
+Saving figures for level3 with catergory celltype
+Saving figures for level4 with catergory sex
+Saving figures for level4 with catergory cerad_score
+Saving figures for level4 with catergory braak_stage
+Saving figures for level4 with catergory apoe_genotype
+Saving figures for level4 with catergory celltype
+Saving figures for level5 with catergory sex
+Saving figures for level5 with catergory cerad_score
+Saving figures for level5 with catergory braak_stage
+Saving figures for level5 with catergory apoe_genotype
+Saving figures for level5 with catergory celltype
+Saving figures for level6 with catergory sex
+Saving figures for level6 with catergory cerad_score
+Saving figures for level6 with catergory braak_stage
+Saving figures for level6 with catergory apoe_genotype
+Saving figures for level6 with catergory celltype
+Saving figures for level7 with catergory sex
+Saving figures for level7 with catergory cerad_score
+Saving figures for level7 with catergory braak_stage
+Saving figures for level7 with catergory apoe_genotype
+Saving figures for level7 with catergory celltype
+Saving figures for level8 with catergory sex
+Saving figures for level8 with catergory cerad_score
+Saving figures for level8 with catergory braak_stage
+Saving figures for level8 with catergory apoe_genotype
+Saving figures for level8 with catergory celltype
+-----------------------Start diagnosis: yes
+  Calculating PCA...
+  Calculated PCA in 33.20 seconds.
+  Calculating diffusion potential...
+  Calculated diffusion potential in 40.42 seconds.
+  Setting epsilon to 4.8026
+  Setting merge threshold to 0.1235
+  Calculating condensation...
+  Calculated condensation in 46.69 seconds.
+Calculated Multiscale PHATE tree in 125.38 seconds.
+Computing gradient...
+Identifying salient levels of resolution...
+Saving figures for level0 with catergory sex
+Saving figures for level0 with catergory cerad_score
+Saving figures for level0 with catergory braak_stage
+Saving figures for level0 with catergory apoe_genotype
+Saving figures for level0 with catergory celltype
+Saving figures for level1 with catergory sex
+Saving figures for level1 with catergory cerad_score
+Saving figures for level1 with catergory braak_stage
+Saving figures for level1 with catergory apoe_genotype
+Saving figures for level1 with catergory celltype
+Saving figures for level2 with catergory sex
+Saving figures for level2 with catergory cerad_score
+Saving figures for level2 with catergory braak_stage
+Saving figures for level2 with catergory apoe_genotype
+Saving figures for level2 with catergory celltype
+Saving figures for level3 with catergory sex
+Saving figures for level3 with catergory cerad_score
+Saving figures for level3 with catergory braak_stage
+Saving figures for level3 with catergory apoe_genotype
+Saving figures for level3 with catergory celltype
+Saving figures for level4 with catergory sex
+Saving figures for level4 with catergory cerad_score
+Saving figures for level4 with catergory braak_stage
+Saving figures for level4 with catergory apoe_genotype
+Saving figures for level4 with catergory celltype
+Saving figures for level5 with catergory sex
+Saving figures for level5 with catergory cerad_score
+Saving figures for level5 with catergory braak_stage
+Saving figures for level5 with catergory apoe_genotype
+Saving figures for level5 with catergory celltype
+Saving figures for level6 with catergory sex
+Saving figures for level6 with catergory cerad_score
+Saving figures for level6 with catergory braak_stage
+Saving figures for level6 with catergory apoe_genotype
+Saving figures for level6 with catergory celltype
+Saving figures for level7 with catergory sex
+Saving figures for level7 with catergory cerad_score
+Saving figures for level7 with catergory braak_stage
+Saving figures for level7 with catergory apoe_genotype
+Saving figures for level7 with catergory celltype
+Saving figures for level8 with catergory sex
+Saving figures for level8 with catergory cerad_score
+Saving figures for level8 with catergory braak_stage
+Saving figures for level8 with catergory apoe_genotype
+Saving figures for level8 with catergory celltype
+Saving figures for level9 with catergory sex
+Saving figures for level9 with catergory cerad_score
+Saving figures for level9 with catergory braak_stage
+Saving figures for level9 with catergory apoe_genotype
+Saving figures for level9 with catergory celltype
+Saving figures for level10 with catergory sex
+Saving figures for level10 with catergory cerad_score
+Saving figures for level10 with catergory braak_stage
+Saving figures for level10 with catergory apoe_genotype
+Saving figures for level10 with catergory celltype
+Saving figures for level11 with catergory sex
+Saving figures for level11 with catergory cerad_score
+Saving figures for level11 with catergory braak_stage
+Saving figures for level11 with catergory apoe_genotype
+Saving figures for level11 with catergory celltype
+Saving figures for level12 with catergory sex
+Saving figures for level12 with catergory cerad_score
+Saving figures for level12 with catergory braak_stage
+Saving figures for level12 with catergory apoe_genotype
+Saving figures for level12 with catergory celltype
