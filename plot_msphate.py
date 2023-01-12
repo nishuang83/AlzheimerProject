@@ -7,14 +7,14 @@ import multiscale_phate as MSphate
 import pickle 
 import scprep
 import numpy as np
-from utils import plot_all_levels, plot_all_cluster_level
+from utils import plot_all_levels, plot_all_cluster_level, plot_MELD_all_levels
 
 PROJECT_DIR="/home/shuangni/AlzheimerProject"
 DATA_DIR = '/home/shuangni/scratch/Alzheimer_data'
 
-DATA_DIR_preprocessed = DATA_DIR + '/data/msPHATE_data_pp.h5ad'
-data_pp = sc.read(DATA_DIR_preprocessed)
-data_pp.obs.diagnosis.replace({1: 1, -1:0}, inplace=True)
+#DATA_DIR_preprocessed = DATA_DIR + '/data/msPHATE_data_pp.h5ad'
+#data_pp = sc.read(DATA_DIR_preprocessed)
+#data_pp.obs.diagnosis.replace({1: 1, -1:0}, inplace=True)
 
 read_levels = open(DATA_DIR + '/results/1st/'+'levels.pkl','rb')
 levels = pickle.load(read_levels)  
@@ -38,8 +38,8 @@ print('levels = ',levels)
 ######
 # plot all with catagory
 ######
-SAVE_DIR = '/home/shuangni/AlzheimerProject/figures/original2/'
-plot_all_levels(data = data_pp, levels = levels, mp_op = mp_op, PROJECT_DIR = SAVE_DIR)
+#SAVE_DIR = '/home/shuangni/AlzheimerProject/figures/original2/'
+#plot_all_levels(data = data_pp, levels = levels, mp_op = mp_op, PROJECT_DIR = SAVE_DIR)
 
 ######
 # plot all with different cluster level , vl: visulization level
@@ -58,11 +58,19 @@ plt.figure()
 scprep.plot.scatter2d(embedding, s = 100*np.sqrt(sizes), c = majority_vote,
                       fontsize=16, ticks=False,label_prefix="Multiscale PHATE", figsize=(10,8), alpha = ratio)
 plt.savefig(PROJECT_DIR + '/figures/'+ titles +'_v2_diagnosis.jpg')
-
-
-
-
 '''
+
+######
+# plot MELD
+######
+# read meld results
+read_meld = open(DATA_DIR + '/data/MELD_diagnosis_likelihoods.pkl','rb')
+meld_likelihoods = pickle.load(read_meld)  
+print("MELD likelihoods loaded")
+
+SAVE_DIR = '/home/shuangni/AlzheimerProject/figures/MELD'
+plot_MELD_all_levels(meld_likelihoods = meld_likelihoods, levels = levels, mp_op = mp_op, PROJECT_DIR = SAVE_DIR)
+
 # MELD
 # data_pp.obs["diagnosis"].replace({1: 1, -1: 0}, inplace=True)
 # diagnosis_likelihoods = calculate_MELD(data_pp, data_pp.obs["diagnosis"])

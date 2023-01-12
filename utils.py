@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import multiscale_phate as MSphate
 import scprep
 import numpy as np
+import meld
 
 def plot_all_levels(data, titles = 'Multiscale_PHATE_', levels = [], mp_op = None, PROJECT_DIR="/home/shuangni/AlzheimerProject/figures/"): 
     if levels==[] or mp_op==None:
@@ -50,17 +51,35 @@ def plot_all_levels_zoomin(titles = 'Multiscale PHATE', levels = [], mp_op = Non
         print('Saving figures for level%s'%(i+1))
 
 
-'''
-# import meld
 def calculate_MELD(data, sample_labels):
     # Estimate density of each sample over the graph
-    meld_op = meld.MELD(solver='exact')
-   sample_densities = meld_op.fit_transform(data, sample_labels)
+    meld_op = meld.MELD()
+    sample_densities = meld_op.fit_transform(data, sample_labels)
 
-   # Normalize densities to calculate sample likelihoods
-   sample_likelihoods = meld.utils.normalize_densities(sample_densities)
-   return sample_likelihoods
-'''
+    # Normalize densities to calculate sample likelihoods
+    sample_likelihoods = meld.utils.normalize_densities(sample_densities)
+    return sample_likelihoods
+
+def plot_MELD_all_levels(meld_likelihoods, titles = 'Multiscale_PHATE_', levels = [], mp_op = None, PROJECT_DIR="/home/shuangni/AlzheimerProject/figures/"): 
+    if levels==[] or mp_op==None:
+            return print('Error: Insufficient input for ploting figures.')
+    
+    for i in range(len(levels)-1): 
+        embedding, clusters, sizes = mp_op.transform(visualization_level = levels[i+1], cluster_level = levels[-3])
+        
+        category = meld_likelihoods[0]
+            
+        majority_vote, ratio = mp_op.get_majority_votes(categories = category, visualization_level = levels[i+1])
+
+        plt.figure()
+        scprep.plot.scatter2d(embedding, s = 50*np.sqrt(sizes), c = majority_vote, 
+                      fontsize=16, ticks=False,label_prefix="Multiscale PHATE", figsize=(10,8), alpha = ratio, cmap='RdBu')
+        plt.savefig(PROJECT_DIR + titles + 'MELD' +'_v_%s'%levels[i+1] +'.jpg')
+        print('Saving figures for level%s with catergory'%(i))
+        plt.close()
+
+
+
 if __name__ == "__main__":
     plot_all_levels()
 
